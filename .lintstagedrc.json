@@ -1,5 +1,10 @@
 {
   "*.{js,ts,tsx}": [
-    "eslint --fix"
+    "eslint --fix",
+    "prettier --single-quote --no-semi --write",
+    "git add"
+  ],
+  "*.json": [
+    "git add"
   ]
 }
