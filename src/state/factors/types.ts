@@ -1,5 +1,5 @@
-export interface IFactors {
-  data: []
-  errors: any
-  fetching: boolean
+export interface FactorsT {
+  data: [];
+  errors: any;
+  fetching: boolean;
 }

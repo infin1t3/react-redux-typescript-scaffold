@@ -1,16 +1,16 @@
+import { Action } from 'redux-actions';
 import * as actions from "./actions";
 import initialState from "./initialState";
-import { Action } from 'redux-actions';
-import { IFactors } from './types';
+import { FactorsT } from './types';
 
 
-export default (state: IFactors = initialState, action: Action<string, [], any>) => {
-  const { type, payload } = action;
+export default (state: FactorsT = initialState, action: Action<string, [], any>): FactorsT => {
+  const { type } = action;
   switch (type) {
     case actions.FETCH_FACTORS:
       return {
         ...state,
-        data: payload
+        data: []
       };
     default:
       return state;

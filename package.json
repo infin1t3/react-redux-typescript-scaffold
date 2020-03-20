@@ -23,7 +23,45 @@
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "react-app",
+      "airbnb",
+      "plugin:jsx-a11y/recommended",
+      "prettier",
+      "prettier/react",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": [
+      "jsx-a11y",
+      "prettier"
+    ],
+    "rules": {
+      "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+      "@typescript-eslint/ban-ts-ignore": "off",
+      "import/extensions"           : [
+        "error",
+        "ignorePackages",
+        {
+          "js": "never",
+          "jsx": "never",
+          "ts": "never",
+          "tsx": "never"
+        }
+      ],
+      "react/jsx-filename-extension": [1, { "extensions": [".ts", ".jsx"] }]
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        }
+      },
+      "react": {
+        "version": "detect"
+      }
+    }
   },
   "browserslist": {
     "production": [
@@ -52,8 +90,14 @@
     "@types/redux-saga": "^0.10.5",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-react-app": "^5.2.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
     "redux-immutable-state-invariant": "^2.1.0"
   }
 }

@@ -3,8 +3,8 @@ import createSagaMiddleware from 'redux-saga';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import { createBrowserHistory } from 'history';
 import {connectRouter, routerMiddleware} from 'connected-react-router';
-import createRootReducer from '../state/reducers';
-import sagas from '../state/sagas';
+import createRootReducer from "./reducers";
+import sagas from "./sagas";
 
 export const history = createBrowserHistory();
 const connectRouterHistory = connectRouter(history);
@@ -53,7 +53,7 @@ function configureStoreDev(initialState={}) {
   if (module.hot) {
     // @ts-ignore
     module.hot.accept('../state/reducers', () => {
-      const nextRootReducer = require('../state/reducers').default; // eslint-disable-line global-require
+      const nextRootReducer = require("./reducers").default; // eslint-disable-line global-require
       // @ts-ignore
       store.replaceReducer(connectRouterHistory(nextRootReducer));
     });

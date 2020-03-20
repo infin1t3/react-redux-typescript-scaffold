@@ -1,6 +1,6 @@
-import { IFactors } from './types';
+import { FactorsT } from './types';
 
-const initialState: IFactors = {
+const initialState: FactorsT = {
   data: [],
   errors: [],
   fetching: false
