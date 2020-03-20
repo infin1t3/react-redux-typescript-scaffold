@@ -16,11 +16,12 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently -k -r -s first \"react-scripts start\" \"yarn run lint:watch\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+    "lint": "tsc --noEmit && eslint '*/**/*.{ts,tsx}' --quiet --fix",
+    "lint:watch": "esw --watch --ext .ts src --color"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
@@ -38,9 +39,14 @@
       "prettier"
     ],
     "rules": {
-      "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true
+        }
+      ],
       "@typescript-eslint/ban-ts-ignore": "off",
-      "import/extensions"           : [
+      "import/extensions": [
         "error",
         "ignorePackages",
         {
@@ -50,12 +56,25 @@
           "tsx": "never"
         }
       ],
-      "react/jsx-filename-extension": [1, { "extensions": [".ts", ".jsx"] }]
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".ts",
+            ".jsx"
+          ]
+        }
+      ]
     },
     "settings": {
       "import/resolver": {
         "node": {
-          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ]
         }
       },
       "react": {
@@ -90,11 +109,13 @@
     "@types/redux-saga": "^0.10.5",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",
+    "concurrently": "^5.1.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-config-react-app": "^5.2.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
+    "eslint-watch": "^6.0.1",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
