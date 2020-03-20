@@ -23,5 +23,6 @@
   "include": [
     "src",
     "@custom_types/*"
-  ]
+  ],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
