@@ -48,6 +48,7 @@
     "@types/redux": "^3.6.0",
     "@types/redux-immutable-state-invariant": "^2.1.1",
     "@types/redux-saga": "^0.10.5",
+    "@types/webpack-env": "^1.15.1",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",
     "concurrently": "^5.1.0",
